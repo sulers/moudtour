@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Moud Tour — Zanzibar Travel</title>
+    <meta
+      name="description"
+      content="Moud Tour — Zanzibar tours, Stone Town, Nungwi Beach, spice farms, Prison Island, Jozani Forest. Plan your island escape with a local expert."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/index.css" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpg" sizes="32x32" href="images/fav.jpg" />
+    <link rel="icon" type="image/jpg" sizes="16x16" href="images/fav.jpg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="images/fav.jpg" />
+    <link rel="manifest" href="site.webmanifest" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header" id="top">
+      <div class="container">
+        <nav class="nav" aria-label="Main navigation">
+          <a href="#top" class="brand">
+            <div class="brand-logo">M</div>
+            <div class="brand-name">Moud Tour</div>
+          </a>
+          <button class="burger" aria-label="Open menu" id="burger">☰</button>
+          <div class="menu" id="menu">
+            <a href="#destinations">Destinations</a>
+            <a href="#tours">Tours</a>
+            <a href="#why">Why Us</a>
+            <a href="#contact" class="cta" style="color: #1a1a1a"
+              >Plan Your Trip</a
+            >
+          </div>
+        </nav>
+        <div class="mobile" id="mobileMenu" aria-label="Mobile navigation">
+          <a href="#destinations">Destinations</a>
+          <a href="#tours">Tours</a>
+          <a href="#why">Why Us</a>
+          <a href="#contact">Plan Your Trip</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" role="banner">
+      <div class="container wrap">
+        <div class="eyebrow">
+          <span class="dot"></span><span>Island escapes crafted by locals</span>
+        </div>
+        <h1>
+          Discover Zanzibar with
+          <span style="color: var(--gold)">Moud Tour</span>
+        </h1>
+        <p>
+          From the winding alleys of Stone Town to the turquoise shores of
+          Nungwi, we design intimate experiences—spice farm trails, dhow
+          sunsets, sandbank picnics, Prison Island tortoises and more.
+        </p>
+        <div class="hero-actions">
+          <a href="#tours" class="btn btn-primary">Explore Signature Tours</a>
+          <a href="#contact" class="btn btn-outline">Get a Free Itinerary</a>
+        </div>
+        <div class="chipbar" aria-label="highlights">
+          <div class="chip">Private & Group Options</div>
+          <div class="chip">Hotel Pickup</div>
+          <div class="chip">Licensed Local Guides</div>
+          <div class="chip">Flexible Scheduling</div>
+        </div>
+      </div>
+    </section>
+
+    <main>
+      <!-- Destinations -->
+      <section class="section" id="destinations">
+        <div class="container">
+          <div class="section-title">
+            <div>
+              <h2>Popular Destinations</h2>
+              <div class="sub">Handpicked places across Unguja & Pemba</div>
+            </div>
+            <a href="#contact" class="see" aria-label="See all destinations"
+              >All Destinations</a
+            >
+          </div>
+
+          <div class="grid">
+            <!-- Switzerland → Nungwi Beach -->
+            <article class="card span-6">
+              <div
+                class="img"
+                style="background-image: url('/images/beach.jpg')"
+              ></div>
+              <div class="overlay"></div>
+              <div class="content">
+                <div class="pill"><span class="sq"></span>Beach</div>
+                <h3>Nungwi Beach</h3>
+                <div class="meta">30+ stays • Snorkeling • Dhow sunset</div>
+                <a class="see" href="#contact">See Destination</a>
+              </div>
+            </article>
+
+            <!-- New York → Stone Town -->
+            <article class="card span-6">
+              <div
+                class="img"
+                style="background-image: url('/images/stonetown2.jpg')"
+              ></div>
+              <div class="overlay"></div>
+              <div class="content">
+                <div class="pill"><span class="sq"></span>Heritage</div>
+                <h3>Stone Town</h3>
+                <div class="meta">UNESCO old quarter • Food market</div>
+                <a class="see" href="#contact">See Destination</a>
+              </div>
+            </article>
+
+            <!-- Jozani Forest -->
+            <article class="card span-6">
+              <div
+                class="img"
+                style="background-image: url('/images/jozani2.jpg')"
+              ></div>
+              <div class="overlay"></div>
+              <div class="content">
+                <div class="pill"><span class="sq"></span>Nature</div>
+                <h3>Jozani Forest</h3>
+                <div class="meta">Red colobus monkeys • Mangroves</div>
+                <a class="see" href="#contact">See Destination</a>
+              </div>
+            </article>
+
+            <!-- Prison Island -->
+            <article class="card span-6">
+              <div
+                class="img"
+                style="background-image: url('/images/prison.jpg')"
+              ></div>
+              <div class="overlay"></div>
+              <div class="content">
+                <div class="pill"><span class="sq"></span>Island</div>
+                <h3>Prison Island</h3>
+                <div class="meta">Giant tortoises • Snorkel reefs</div>
+                <a class="see" href="#contact">See Destination</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Why Us -->
+      <section class="section" id="why">
+        <div class="container">
+          <div class="section-title"><h2>Why travel with Moud Tour?</h2></div>
+          <div class="why">
+            <div class="feature">
+              <div class="icon">✓</div>
+              <h3>Local Expertise</h3>
+              <p class="small">
+                Born-and-bred Zanzibar guides who know the hidden alleys, tide
+                times and the right spice farms.
+              </p>
+            </div>
+            <div class="feature">
+              <div class="icon">⏱</div>
+              <h3>Flexible Scheduling</h3>
+              <p class="small">
+                Private or group tours with hotel pickup across Stone Town,
+                Nungwi, Paje and more.
+              </p>
+            </div>
+            <div class="feature">
+              <div class="icon">★</div>
+              <h3>Quality & Safety</h3>
+              <p class="small">
+                Licensed operators, vetted boats & vehicles, and support
+                throughout your trip.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured Tours -->
+      <section class="section" id="tours">
+        <div class="container">
+          <div class="section-title">
+            <div>
+              <h2>Featured Tours</h2>
+              <div class="sub">Customer favorites this season</div>
+            </div>
+          </div>
+          <div class="grid">
+            <div class="tour span-6">
+              <div
+                class="cover"
+                style="background-image: url('/images/stonetown.jpg')"
+              ></div>
+              <div class="body">
+                <h3>Stone Town Heritage Walk</h3>
+                <p class="small">
+                  Doors, spice market, Freddie Mercury house, Old Fort and
+                  Forodhani food market.
+                </p>
+              </div>
+            </div>
+            <div class="tour span-6">
+              <div
+                class="cover"
+                style="background-image: url('/images/mnemba.jpg')"
+              ></div>
+              <div class="body">
+                <h3>Mnemba Atoll Snorkeling</h3>
+                <p class="small">
+                  Crystal waters, reefs and dolphins near Matemwe. Gear & boat
+                  included.
+                </p>
+              </div>
+            </div>
+            <div class="tour span-6">
+              <div
+                class="cover"
+                style="background-image: url('/images/spicefarm.jpg')"
+              ></div>
+              <div class="body">
+                <h3>Spice Farm & Cooking</h3>
+                <p class="small">
+                  Taste cloves, vanilla and cinnamon, then learn to cook Swahili
+                  dishes with a local chef.
+                </p>
+              </div>
+            </div>
+            <div class="tour span-6">
+              <div
+                class="cover"
+                style="background-image: url('/images/safari.jpg')"
+              ></div>
+              <div class="body">
+                <h3>Blue Safari Sandbank</h3>
+                <p class="small">
+                  Sail by dhow to a pristine sandbank for snorkeling and a
+                  seafood BBQ lunch.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top: 26px" class="cta-band">
+            <div>
+              <h3 style="margin: 0 0 6px">
+                Ready to plan your Zanzibar itinerary?
+              </h3>
+              <div class="small" style="opacity: 0.95">
+                Share your dates and interests—we'll craft a free, no‑obligation
+                plan within 24 hours.
+              </div>
+            </div>
+            <a
+              href="#contact"
+              class="btn btn-primary"
+              style="background: var(--gold); color: #1a1a1a"
+              >Start Planning</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact / CTA -->
+      <section class="section" id="contact">
+        <div class="container">
+          <div class="section-title">
+            <h2>Get a custom quote</h2>
+            <div class="sub">
+              Tell us your dates, group size and must‑see spots
+            </div>
+          </div>
+          <div class="grid">
+            <form
+              class="span-6"
+              onsubmit="event.preventDefault(); alert('Asante! We\'ll get back to you shortly.');"
+              style="
+                background: #fff;
+                border-radius: 16px;
+                padding: 18px;
+                box-shadow: var(--shadow);
+              "
+            >
+              <label class="small"
+                >Full Name<br /><input
+                  required
+                  type="text"
+                  placeholder="Your name"
+                  style="
+                    width: 100%;
+                    padding: 12px;
+                    border: 1px solid #e3e7eb;
+                    border-radius: 10px;
+                    margin: 6px 0 12px;
+                  "
+              /></label>
+              <label class="small"
+                >Email<br /><input
+                  required
+                  type="email"
+                  placeholder="name@email.com"
+                  style="
+                    width: 100%;
+                    padding: 12px;
+                    border: 1px solid #e3e7eb;
+                    border-radius: 10px;
+                    margin: 6px 0 12px;
+                  "
+              /></label>
+              <label class="small"
+                >Travel Dates<br /><input
+                  type="text"
+                  placeholder="e.g. 12–18 Sept"
+                  style="
+                    width: 100%;
+                    padding: 12px;
+                    border: 1px solid #e3e7eb;
+                    border-radius: 10px;
+                    margin: 6px 0 12px;
+                  "
+              /></label>
+              <label class="small"
+                >Message<br /><textarea
+                  rows="5"
+                  placeholder="Group size, interests (beaches, culture, snorkeling, blue safari...)"
+                  style="
+                    width: 100%;
+                    padding: 12px;
+                    border: 1px solid #e3e7eb;
+                    border-radius: 10px;
+                    margin: 6px 0 18px;
+                  "
+                ></textarea>
+              </label>
+              <button class="btn btn-primary" type="submit">
+                Request Quote
+              </button>
+            </form>
+            <div
+              class="span-6"
+              style="display: flex; flex-direction: column; gap: 10px"
+            >
+              <div
+                class="tour"
+                style="flex-direction: row; align-items: center"
+              >
+                <div
+                  class="cover"
+                  style="
+                    flex: 1;
+                    aspect-ratio: 1/1;
+                    background-image: url('https://images.unsplash.com/photo-1589309789440-43f78c70e4e6?q=80&w=1600&auto=format&fit=crop');
+                  "
+                ></div>
+                <div class="body" style="flex: 2">
+                  <h3>Talk to a local expert</h3>
+                  <p class="small">
+                    WhatsApp / Call: <strong>+255 7XX XXX XXX</strong
+                    ><br />Email: <strong>hello@moudtour.co.tz</strong>
+                  </p>
+                  <p class="small" style="opacity: 0.8">
+                    Working hours: Mon–Sun, 08:00–20:00 EAT
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="cols">
+          <div>
+            <a class="brand" href="#top" style="color: #c9d6df"
+              ><div
+                class="brand-logo"
+                style="background: linear-gradient(135deg, #ffd166, #ffe08a)"
+              >
+                M
+              </div>
+              <div class="brand-name">Moud Tour</div></a
+            >
+            <p class="small" style="margin-top: 10px">
+              Authentic Zanzibar experiences: Stone Town, spice, sea and smiles.
+              TUKIKARIBISHA — you are most welcome.
+            </p>
+          </div>
+          <div>
+            <h4>Explore</h4>
+            <div
+              class="small"
+              style="display: grid; gap: 8px; margin-top: 10px"
+            >
+              <a href="#destinations">Destinations</a>
+              <a href="#tours">Tours</a>
+              <a href="#why">Why Us</a>
+              <a href="#contact">Contact</a>
+            </div>
+          </div>
+          <div>
+            <h4>Info</h4>
+            <div
+              class="small"
+              style="display: grid; gap: 8px; margin-top: 10px"
+            >
+              <span>Stone Town, Zanzibar</span>
+              <span>+255 7XX XXX XXX</span>
+              <span>hello@moudtour.co.tz</span>
+            </div>
+          </div>
+        </div>
+        <div class="small" style="margin-top: 24px; opacity: 0.6">
+          © <span id="year"></span> Moud Tour. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Sticky header shadow & mobile menu toggle
+      const header = document.querySelector(".header");
+      const burger = document.getElementById("burger");
+      const mobile = document.getElementById("mobileMenu");
+      const menu = document.getElementById("menu");
+
+      function onScroll() {
+        if (window.scrollY > 6) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+      }
+      window.addEventListener("scroll", onScroll);
+      onScroll();
+
+      function syncMenu() {
+        if (window.innerWidth < 880) {
+          burger.style.display = "block";
+          menu.style.display = "none";
+        } else {
+          burger.style.display = "none";
+          menu.style.display = "flex";
+          mobile.classList.remove("open");
+        }
+      }
+      window.addEventListener("resize", syncMenu);
+      syncMenu();
+      burger.addEventListener("click", () => mobile.classList.toggle("open"));
+
+      // Close mobile menu on link click
+      mobile
+        .querySelectorAll("a")
+        .forEach((a) =>
+          a.addEventListener("click", () => mobile.classList.remove("open"))
+        );
+
+      // Year
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
