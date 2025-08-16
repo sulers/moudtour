@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Moud Tour — Why Us</title>
+    <link rel="stylesheet" href="styles/index.css" />
+    <link rel="icon" type="image/jpg" sizes="32x32" href="images/fav.jpg" />
+    <link rel="icon" type="image/jpg" sizes="16x16" href="images/fav.jpg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="images/fav.jpg" />
+    <link rel="manifest" href="site.webmanifest" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #f4f4f4;
+        color: #333;
+      }
+      /*header {background:#0e5f68; color:#fff; position:sticky; top:0; z-index:100;}
+    nav {display:flex; justify-content:space-between; align-items:center; padding:15px 20px; max-width:1200px; margin:auto;}
+    nav a {color:#fff; text-decoration:none; margin:0 10px; font-weight:500;}
+    nav .brand {font-weight:700; font-size:1.2em;}*/
+      h1 {
+        margin: 0;
+        text-align: center;
+        padding: 20px;
+      }
+      .services {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        padding: 40px;
+        max-width: 1200px;
+        margin: auto;
+      }
+      .card {
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      }
+      .card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+      .card-content {
+        padding: 20px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .card h3,
+      .card p {
+        margin-top: 0;
+        color: #0e5f68;
+      }
+      .book-btn {
+        display: inline-block;
+        background: #ffb703;
+        color: #000;
+        padding: 12px 20px;
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: bold;
+        margin-top: 20px;
+        text-align: center;
+      }
+      .book-btn:hover {
+        background: #e6a500;
+      }
+      footer {
+        background: #0e1a22;
+        color: #c9d6df;
+        padding: 40px 20px;
+        margin-top: 40px;
+      }
+      .footer-content {
+        max-width: 1200px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+      }
+      .footer-content h4 {
+        margin-bottom: 10px;
+      }
+      .footer-content a {
+        color: #c9d6df;
+        text-decoration: none;
+        display: block;
+        margin-bottom: 6px;
+      }
+      .footer-content a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header" id="top">
+      <div class="container">
+        <nav class="nav" aria-label="Main navigation">
+          <a href="/" class="brand">
+            <div class="brand-logo">M</div>
+            <div class="brand-name">Moud Tour</div>
+          </a>
+          <button class="burger" aria-label="Open menu" id="burger">☰</button>
+          <div class="menu" id="menu">
+            <a href="tours.html">Tours</a>
+            <a href="why-us.html">Why Us</a>
+            <a href="index.html#contact" class="cta" style="color: #1a1a1a"
+              >Plan Your Trip</a
+            >
+          </div>
+        </nav>
+        <div class="mobile" id="mobileMenu" aria-label="Mobile navigation">
+          <a href="tours.html">Tours</a>
+            <a href="why-us.html">Why Us</a>
+            <a href="index.html#contact" class="cta" style="color: #1a1a1a"
+              >Plan Your Trip</a
+            >
+        </div>
+      </div>
+    </header>
+
+    <h1>Why Travel with Moud Tour?</h1>
+
+    <section class="services">
+      <div class="card">
+        <img src="/images/beach.jpg" alt="Beach Tours" />
+        <div class="card-content">
+          <h3>✔️ Beach Tours</h3>
+          <p>
+            Unwind on Zanzibar’s pristine white sands with crystal-clear waters.
+            Perfect for sunbathing, swimming, and enjoying the laid-back
+            tropical atmosphere.
+          </p>
+          <a href="booking.html" class="book-btn">Book Now</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="/images/stonetown2.jpg" alt="Historical Tours" />
+        <div class="card-content">
+          <h3>✔️ Historical Tours – Stone Town, Prison Island</h3>
+          <p>
+            Step back in time exploring Stone Town’s winding alleys, coral stone
+            architecture, and visit Prison Island to meet its famous giant
+            tortoises.
+          </p>
+          <a href="booking.html" class="book-btn">Book Now</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="/images/spice.jpg" alt="Nature & Cultural Tours" />
+        <div class="card-content">
+          <h3>✔️ Nature & Cultural Tours – Jozani Forest, Spice Farms</h3>
+          <p>
+            See rare red colobus monkeys in Jozani Forest and immerse yourself
+            in the scents and tastes of Zanzibar’s legendary spice farms.
+          </p>
+          <a href="booking.html" class="book-btn">Book Now</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="/images/stonetown.jpg" alt="Live Like a Local" />
+        <div class="card-content">
+          <h3>✔️ Live Like a Local</h3>
+          <p>
+            Discover everyday life in Zanzibar with a local guide — from
+            bustling markets to hidden corners away from tourist paths.
+          </p>
+          <a href="booking.html" class="book-btn">Book Now</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="/images/dolphins.jpg" alt="Ocean Adventures" />
+        <div class="card-content">
+          <h3>✔️ Ocean Adventures – Safari Blue, Dolphin Tours, Snorkeling</h3>
+          <p>
+            Embark on a Safari Blue journey, swim alongside dolphins, snorkel
+            vibrant coral reefs, and savor seafood on an idyllic sandbank.
+          </p>
+          <a href="booking.html" class="book-btn">Book Now</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-content">
+        <div>
+          <h4>Contact Us</h4>
+          <a href="tel:+2557XXXXXXXX">📞 +255 7XX XXX XXX</a>
+          <a href="https://wa.me/2557XXXXXXXX">💬 WhatsApp</a>
+          <a href="mailto:hello@moudtour.co.tz">📧 hello@moudtour.co.tz</a>
+          <a href="#">🎵 TikTok</a>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <a href="index.html">Home</a>
+          <a href="whyus.html">Why Us</a>
+          <a href="tours.html">Tours</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <p
+        style="
+          text-align: center;
+          margin-top: 20px;
+          font-size: 14px;
+          opacity: 0.7;
+        "
+      >
+        © <span id="year"></span> Moud Tour. All rights reserved.
+      </p>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+    <script src="/scripts/nav.js"></script>
+  </body>
+</html>

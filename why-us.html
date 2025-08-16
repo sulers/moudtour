@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Moud Tour — About Us</title>
+    <link rel="stylesheet" href="styles/index.css" />
+    <link rel="icon" type="image/jpg" sizes="32x32" href="images/fav.jpg" />
+    <link rel="icon" type="image/jpg" sizes="16x16" href="images/fav.jpg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="images/fav.jpg" />
+    <link rel="stylesheet" href="/styles/index.css">
+    <link rel="manifest" href="site.webmanifest" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #f4f4f4;
+        color: #333;
+        line-height: 1.6;
+      }
+      main {
+        max-width: 900px;
+        margin: auto;
+        padding: 40px 20px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        color: #0e5f68;
+      }
+      h2 {
+        margin-top: 30px;
+        color: #0e5f68;
+      }
+      footer {
+        background: #0e1a22;
+        color: #c9d6df;
+        padding: 40px 20px;
+        margin-top: 40px;
+      }
+      .footer-content {
+        max-width: 1200px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+      }
+      .footer-content h4 {
+        margin-bottom: 10px;
+      }
+      .footer-content a {
+        color: #c9d6df;
+        text-decoration: none;
+        display: block;
+        margin-bottom: 6px;
+      }
+      .footer-content a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header" id="top">
+      <div class="container">
+        <nav class="nav" aria-label="Main navigation">
+          <a href="/" class="brand">
+            <div class="brand-logo">M</div>
+            <div class="brand-name">Moud Tour</div>
+          </a>
+          <button class="burger" aria-label="Open menu" id="burger">☰</button>
+          <div class="menu" id="menu">
+            <a href="tours.html">Tours</a>
+            <a href="why-us.html">Why Us</a>
+            <a href="#contact" class="cta" style="color: #1a1a1a"
+              >Plan Your Trip</a
+            >
+          </div>
+        </nav>
+        <div class="mobile" id="mobileMenu" aria-label="Mobile navigation">
+          <a href="tours.html">Tours</a>
+            <a href="why-us.html">Why Us</a>
+            <a href="#contact" class="cta" style="color: #1a1a1a"
+              >Plan Your Trip</a
+            >
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <h1>Why Choose Moud Zanzibar Tours and Safari?</h1>
+      <p>
+        Moud Zanzibar Tours and Safari is a proud local tour company based in
+        the heart of Zanzibar. We specialize in crafting personalized and
+        professional travel experiences for visitors from all around the world.
+      </p>
+
+      <p>
+        Our mission is simple — to make your visit to Zanzibar unforgettable.
+        Whether you're wandering through the historic alleys of Stone Town,
+        relaxing on the powdery white sands of our beaches, or sailing into a
+        golden sunset, we ensure every moment is filled with wonder.
+      </p>
+
+      <h2>Reliable Pickups & Comfortable Transfers</h2>
+      <p>
+        We understand the importance of smooth travel. That’s why we offer
+        punctual and comfortable airport pickups, hotel transfers, and transport
+        to your tours. With clean vehicles and professional local drivers, your
+        journey is as enjoyable as your destination.
+      </p>
+
+      <h2>Languages That Welcome You</h2>
+      <p>
+        Communication should never be a barrier to adventure. Our friendly
+        guides speak English, French, Italian, Spanish, Romanian, German, and
+        Polish — making it easy for you to connect and immerse yourself fully in
+        your Zanzibar experience.
+      </p>
+
+      <h2>Affordable, Transparent Pricing</h2>
+      <p>
+        We believe in fair and transparent pricing for every traveler. No hidden
+        fees, no surprises — just high-quality service that fits your budget,
+        ensuring you get the most value out of your journey.
+      </p>
+
+      <h2>Our Commitment</h2>
+      <p>
+        Your safety, comfort, and enjoyment are our priorities. We go the extra
+        mile to offer tours that combine cultural richness, natural beauty, and
+        authentic local experiences. Our team’s warm hospitality will make you
+        feel less like a tourist and more like a welcomed friend.
+      </p>
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <div>
+          <h4>Contact Us</h4>
+          <a href="tel:+2557XXXXXXXX">📞 +255 7XX XXX XXX</a>
+          <a href="https://wa.me/2557XXXXXXXX">💬 WhatsApp</a>
+          <a href="mailto:hello@moudtour.co.tz">📧 hello@moudtour.co.tz</a>
+          <a href="#">🎵 TikTok</a>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <a href="index.html">Home</a>
+          <a href="whyus.html">Why Us</a>
+          <a href="tours.html">Tours</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <p
+        style="
+          text-align: center;
+          margin-top: 20px;
+          font-size: 14px;
+          opacity: 0.7;
+        "
+      >
+        © <span id="year"></span> Moud Tour. All rights reserved.
+      </p>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+    <script src="/scripts/nav.js"></script>
+  </body>
+</html>
