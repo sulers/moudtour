@@ -1,11 +1,105 @@
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Moud Tour — Booking</title>
+    <link rel="stylesheet" href="/styles/index.css">
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #f4f4f4;
+        color: #333;
+      }
+    
+      /*nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        max-width: 1200px;
+        margin: auto;
+      }
+      nav a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 10px;
+        font-weight: 500;
+      }
+      nav .brand {
+        font-weight: 700;
+        font-size: 1.2em;
+      }*/
+      main {
+        max-width: 700px;
+        margin: auto;
+        padding: 40px 20px;
+      }
+      h1 {
+        color: #0e5f68;
+      }
+      form {
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      label {
+        display: block;
+        margin-top: 15px;
+        font-weight: 600;
+      }
+      input,
+      textarea {
+        width: 100%;
+        padding: 12px;
+        margin-top: 6px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+      }
+      button {
+        margin-top: 20px;
+        padding: 12px 20px;
+        background: #ffb703;
+        border: none;
+        border-radius: 6px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      button:hover {
+        background: #e6a500;
+      }
+      footer {
+        background: #0e1a22;
+        color: #c9d6df;
+        padding: 40px 20px;
+        margin-top: 40px;
+      }
+      .footer-content {
+        max-width: 1200px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+      }
+      .footer-content h4 {
+        margin-bottom: 10px;
+      }
+      .footer-content a {
+        color: #c9d6df;
+        text-decoration: none;
+        display: block;
+        margin-bottom: 6px;
+      }
+      .footer-content a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
     <header class="header" id="top">
       <div class="container">
         <nav class="nav" aria-label="Main navigation">
@@ -24,12 +118,93 @@
         </nav>
         <div class="mobile" id="mobileMenu" aria-label="Mobile navigation">
           <a href="tours.html">Tours</a>
-            <a href="why-us.html">Why Us</a>
-            <a href="#contact" class="cta" style="color: #1a1a1a"
-              >Plan Your Trip</a
-            >
+          <a href="why-us.html">Why Us</a>
+          <a href="#contact" class="cta" style="color: #1a1a1a"
+            >Plan Your Trip</a
+          >
         </div>
       </div>
     </header>
-</body>
+    <main>
+      <h1>Book Your Zanzibar Adventure</h1>
+      <p>
+        Please fill out the form below to request your booking. Our team will
+        get back to you shortly.
+      </p>
+
+      <!-- Formspree form -->
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="phone">Phone / WhatsApp</label>
+        <input type="text" id="phone" name="phone" required />
+
+        <label for="dates">Travel Dates</label>
+        <input
+          type="text"
+          id="dates"
+          name="dates"
+          placeholder="e.g. 10–15 December"
+        />
+
+        <label for="group">Group Size</label>
+        <input
+          type="number"
+          id="group"
+          name="group"
+          min="1"
+          placeholder="e.g. 4"
+        />
+
+        <label for="message">Message / Services Interested In</label>
+        <textarea
+          id="message"
+          name="message"
+          rows="5"
+          placeholder="Tell us what tours or services you’re looking for"
+        ></textarea>
+
+        <button type="submit">Send Booking Request</button>
+      </form>
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <div>
+          <h4>Contact Us</h4>
+          <a href="tel:+2557XXXXXXXX">📞 +255 7XX XXX XXX</a>
+          <a href="https://wa.me/2557XXXXXXXX">💬 WhatsApp</a>
+          <a href="mailto:hello@moudtour.co.tz">📧 hello@moudtour.co.tz</a>
+          <a href="#">🎵 TikTok</a>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <a href="index.html">Home</a>
+          <a href="whyus.html">Why Us</a>
+          <a href="tours.html">Tours</a>
+          <a href="booking.html">Booking</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <p
+        style="
+          text-align: center;
+          margin-top: 20px;
+          font-size: 14px;
+          opacity: 0.7;
+        "
+      >
+        © <span id="year"></span> Moud Tour. All rights reserved.
+      </p>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+    <script src="/scripts/nav.js"></script>
+  </body>
 </html>

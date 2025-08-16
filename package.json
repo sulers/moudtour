@@ -1,0 +1,15 @@
+{
+  "name": "moud_tour",
+  "version": "1.0.0",
+  "description": "Tour guiding agency for Zanzibar heading tourists",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "moudtour"
+  },
+  "author": "SULEIMAN R SALEH",
+  "license": "ISC"
+}
