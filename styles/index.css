@@ -126,7 +126,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: url("/images/jozani.jpg")
+  background: url("../images/jozani.jpg")
     center/cover no-repeat;
   filter: brightness(0.65);
 }
