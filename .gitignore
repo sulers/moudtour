@@ -1,0 +1,20 @@
+# VS Code settings
+.vscode/
+*.code-workspace
+
+# Node.js dependencies (in case you add npm packages later)
+node_modules/
+
+# MacOS system files
+.DS_Store
+
+# Windows system files
+Thumbs.db
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Optional: local environment files
+.env
