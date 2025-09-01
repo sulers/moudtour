@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Moud Tours & Safaris — Booking</title>
+    <title>Moud Tours & Safaris — Why Us</title>
     <meta
       name="description"
       content="Moud Zanzibar Tours offers beach tours, Stone Town exploration, cultural experiences, and safari adventures across Zanzibar. Safe, affordable, and local."
@@ -17,18 +17,15 @@
       property="og:description"
       content="Explore Zanzibar with Moud Tour — Beaches, Stone Town, Spice Farms, Dolphin Tours & more."
     />
-    <meta
-      property="og:image"
-      content="https://moudtours.com/images/moud.jpg"
-    />
+    <meta property="og:image" content="https://moudtours.com/images/moud.jpg" />
     <meta property="og:type" content="website" />
 
-    <link rel="icon" type="image/jpg" sizes="32x32" href="images/fav.jpg" />
-    <link rel="icon" type="image/jpg" sizes="16x16" href="images/fav.jpg" />
-    <link rel="apple-touch-icon" sizes="180x180" href="images/fav.jpg" />
-    <link rel="manifest" href="site.webmanifest" />
-
+    <link rel="stylesheet" href="../styles/index.css" />
+    <link rel="icon" type="image/jpg" sizes="32x32" href="../images/fav.jpg" />
+    <link rel="icon" type="image/jpg" sizes="16x16" href="../images/fav.jpg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/fav.jpg" />
     <link rel="stylesheet" href="styles/index.css" />
+    <link rel="manifest" href="site.webmanifest" />
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -36,64 +33,22 @@
         padding: 0;
         background: #f4f4f4;
         color: #333;
+        line-height: 1.6;
       }
-
-      /*nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 15px 20px;
-        max-width: 1200px;
-        margin: auto;
-      }
-      nav a {
-        color: #fff;
-        text-decoration: none;
-        margin: 0 10px;
-        font-weight: 500;
-      }
-      nav .brand {
-        font-weight: 700;
-        font-size: 1.2em;
-      }*/
       main {
-        max-width: 700px;
+        max-width: 900px;
         margin: auto;
         padding: 40px 20px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       }
       h1 {
         color: #0e5f68;
       }
-      form {
-        background: #fff;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      }
-      label {
-        display: block;
-        margin-top: 15px;
-        font-weight: 600;
-      }
-      input,
-      textarea {
-        width: 100%;
-        padding: 12px;
-        margin-top: 6px;
-        border: 1px solid #ccc;
-        border-radius: 6px;
-      }
-      button {
-        margin-top: 20px;
-        padding: 12px 20px;
-        background: #ffb703;
-        border: none;
-        border-radius: 6px;
-        font-weight: bold;
-        cursor: pointer;
-      }
-      button:hover {
-        background: #e6a500;
+      h2 {
+        margin-top: 30px;
+        color: #0e5f68;
       }
       footer {
         background: #0e1a22;
@@ -126,73 +81,74 @@
     <header class="header" id="top">
       <div class="container">
         <nav class="nav" aria-label="Main navigation">
-          <a href="index.html" class="brand">
+          <a href="../index.html" class="brand">
             <div class="brand-logo">M</div>
             <div class="brand-name">Moud Tours & Safaris</div>
           </a>
           <button class="burger" aria-label="Open menu" id="burger">☰</button>
           <div class="menu" id="menu">
-            <a href="tours.html">Tours</a>
-            <a href="why-us.html">Why Us</a>
+            <a href="./tours.html">Tours</a>
+            <a href="./why-us.html">Why Us</a>
             <a href="#contact" class="cta" style="color: #1a1a1a"
               >Plan Your Trip</a
             >
           </div>
         </nav>
         <div class="mobile" id="mobileMenu" aria-label="Mobile navigation">
-          <a href="tours.html">Tours</a>
-          <a href="why-us.html">Why Us</a>
+          <a href="./tours.html">Tours</a>
+          <a href="./why-us.html">Why Us</a>
           <a href="#contact" class="cta" style="color: #1a1a1a"
             >Plan Your Trip</a
           >
         </div>
       </div>
     </header>
+
     <main>
-      <h1>Book Your Zanzibar Adventure</h1>
+      <h1>Why Choose Moud Zanzibar Tours and Safari?</h1>
       <p>
-        Please fill out the form below to request your booking. Our team will
-        get back to you shortly.
+        Moud Zanzibar Tours and Safari is a proud local tour company based in
+        the heart of Zanzibar. We specialize in crafting personalized and
+        professional travel experiences for visitors from all around the world.
       </p>
 
-      <!-- Formspree form -->
-      <form action="https://formspree.io/f/mblkbndv" method="POST">
-        <label for="name">Full Name</label>
-        <input type="text" id="name" name="name" required />
+      <p>
+        Our mission is simple — to make your visit to Zanzibar unforgettable.
+        Whether you're wandering through the historic alleys of Stone Town,
+        relaxing on the powdery white sands of our beaches, or sailing into a
+        golden sunset, we ensure every moment is filled with wonder.
+      </p>
 
-        <label for="email">Email Address</label>
-        <input type="email" id="email" name="email" required />
+      <h2>Reliable Pickups & Comfortable Transfers</h2>
+      <p>
+        We understand the importance of smooth travel. That’s why we offer
+        punctual and comfortable airport pickups, hotel transfers, and transport
+        to your tours. With clean vehicles and professional local drivers, your
+        journey is as enjoyable as your destination.
+      </p>
 
-        <label for="phone">Phone / WhatsApp</label>
-        <input type="text" id="phone" name="phone" required />
+      <h2>Languages That Welcome You</h2>
+      <p>
+        Communication should never be a barrier to adventure. Our friendly
+        guides speak English, French, Italian, Spanish, Romanian, German, and
+        Polish — making it easy for you to connect and immerse yourself fully in
+        your Zanzibar experience.
+      </p>
 
-        <label for="dates">Travel Dates</label>
-        <input
-          type="text"
-          id="dates"
-          name="dates"
-          placeholder="e.g. 10–15 December"
-        />
+      <h2>Affordable, Transparent Pricing</h2>
+      <p>
+        We believe in fair and transparent pricing for every traveler. No hidden
+        fees, no surprises — just high-quality service that fits your budget,
+        ensuring you get the most value out of your journey.
+      </p>
 
-        <label for="group">Group Size</label>
-        <input
-          type="number"
-          id="group"
-          name="group"
-          min="1"
-          placeholder="e.g. 4"
-        />
-
-        <label for="message">Message / Services Interested In</label>
-        <textarea
-          id="message"
-          name="message"
-          rows="5"
-          placeholder="Tell us what tours or services you’re looking for"
-        ></textarea>
-
-        <button type="submit">Send Booking Request</button>
-      </form>
+      <h2>Our Commitment</h2>
+      <p>
+        Your safety, comfort, and enjoyment are our priorities. We go the extra
+        mile to offer tours that combine cultural richness, natural beauty, and
+        authentic local experiences. Our team’s warm hospitality will make you
+        feel less like a tourist and more like a welcomed friend.
+      </p>
     </main>
 
     <footer>
@@ -210,11 +166,10 @@
         </div>
         <div>
           <h4>Quick Links</h4>
-          <a href="index.html">Home</a>
-          <a href="why-us.html">Why Us</a>
-          <a href="tours.html">Tours</a>
-          <a href="booking.html">Booking</a>
-          <a href="contact.html">Contact</a>
+          <a href="../index.html">Home</a>
+          <a href="./why-us.html">Why Us</a>
+          <a href="./tours.html">Tours</a>
+          <a href="./contact.html">Contact</a>
         </div>
       </div>
       <p
