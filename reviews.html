@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Moud Tour — Reviews</title>
+    <meta name="description" content="Read and post reviews for Moud Tour." />
+    <style>
+      :root {
+        --brand: #0e5f68;
+        --accent: #ffb703;
+        --bg: #f6f8fa;
+        --card: #ffffff;
+        --text: #1a1a1a;
+        --muted: #6b7280;
+        --danger: #c62828;
+        --ok: #1b5e20;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial,
+          sans-serif;
+        background: var(--bg);
+        color: var(--text);
+      }
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: var(--brand);
+        color: #fff;
+      }
+      nav {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 16px;
+      }
+      nav a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 10px;
+        font-weight: 600;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .brand-logo {
+        width: 36px;
+        height: 36px;
+        border-radius: 9px;
+        background: #fff;
+        color: var(--brand);
+        display: grid;
+        place-items: center;
+        font-weight: 800;
+      }
+      main {
+        max-width: 1100px;
+        margin: 32px auto;
+        padding: 0 16px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+      }
+      @media (max-width: 900px) {
+        main {
+          grid-template-columns: 1fr;
+        }
+      }
+      .card {
+        background: var(--card);
+        border-radius: 14px;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+        padding: 20px;
+      }
+      h1 {
+        margin: 0 0 8px;
+        color: var(--brand);
+      }
+      h2 {
+        margin: 0 0 12px;
+        color: var(--brand);
+        font-size: 1.15rem;
+      }
+      .muted {
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+      form label {
+        display: block;
+        margin-top: 14px;
+        font-weight: 600;
+      }
+      input,
+      select,
+      textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #e5e7eb;
+        border-radius: 10px;
+        margin-top: 6px;
+        font: inherit;
+        background: #fff;
+      }
+      textarea {
+        min-height: 120px;
+        resize: vertical;
+      }
+      .stars {
+        display: flex;
+        gap: 8px;
+        margin-top: 8px;
+      }
+      .star {
+        font-size: 22px;
+        cursor: pointer;
+        user-select: none;
+      }
+      .star.inactive {
+        opacity: 0.35;
+      }
+      .row {
+        display: flex;
+        gap: 12px;
+      }
+      .row > div {
+        flex: 1;
+      }
+      .btn {
+        margin-top: 18px;
+        display: inline-block;
+        padding: 12px 18px;
+        background: var(--accent);
+        border: none;
+        border-radius: 10px;
+        font-weight: 800;
+        cursor: pointer;
+      }
+      .btn[disabled] {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+      .verify {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        margin-top: 10px;
+      }
+      .verify input {
+        max-width: 160px;
+      }
+      .status {
+        margin-top: 8px;
+        font-size: 0.9rem;
+      }
+      .status.ok {
+        color: var(--ok);
+      }
+      .status.err {
+        color: var(--danger);
+      }
+      .list {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .item {
+        background: #fff;
+        border: 1px solid #eef2f7;
+        border-radius: 12px;
+        padding: 14px 16px;
+      }
+      .item-top {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 700;
+      }
+      .item-emoji {
+        font-size: 22px;
+      }
+      .item-review {
+        margin: 8px 0 10px;
+        white-space: pre-wrap;
+      }
+      .item-rating {
+        font-size: 0.95rem;
+        color: #444;
+      }
+      footer {
+        background: #0e1a22;
+        color: #c9d6df;
+        margin-top: 40px;
+      }
+      .footer-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 30px 16px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 16px;
+      }
+      .footer-inner a {
+        color: #c9d6df;
+        text-decoration: none;
+        display: block;
+        margin: 6px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav aria-label="Main navigation">
+        <a href="index.html" class="brand" aria-label="Moud Tour Home">
+          <div class="brand-logo">M</div>
+          <div class="brand-name">Moud Tour</div>
+        </a>
+        <div class="menu">
+          <a href="tours.html">Tours</a>
+          <a href="whyus.html">Why Us</a>
+          <a href="booking.html">Booking</a>
+          <a href="reviews.html" aria-current="page">Reviews</a>
+          <a
+            href="index.html#contact"
+            style="
+              background: #fff;
+              color: #0e5f68;
+              padding: 8px 12px;
+              border-radius: 8px;
+            "
+            >Plan Your Trip</a
+          >
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Review Form -->
+      <section class="card">
+        <h1>Leave a Review</h1>
+        <p class="muted">
+          All fields are required. A quick human check keeps spam away.
+        </p>
+
+        <form id="reviewForm" novalidate>
+          <label
+            >Full Name
+            <input
+              type="text"
+              id="fullName"
+              name="fullName"
+              required
+              maxlength="80"
+              placeholder="e.g., Asha M."
+            />
+          </label>
+
+          <div class="row">
+            <div>
+              <label
+                >Email
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  placeholder="you@example.com"
+                />
+              </label>
+            </div>
+            <div>
+              <label
+                >Gender
+                <select id="gender" name="gender" required>
+                  <option value="">Select…</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="na">Prefer not to say</option>
+                </select>
+              </label>
+            </div>
+          </div>
+
+          <label>Rating</label>
+          <div class="stars" id="stars" aria-label="Rate from 1 to 5">
+            <span class="star" data-v="1">★</span>
+            <span class="star" data-v="2">★</span>
+            <span class="star" data-v="3">★</span>
+            <span class="star" data-v="4">★</span>
+            <span class="star" data-v="5">★</span>
+          </div>
+          <input type="hidden" id="rating" name="rating" required value="0" />
+
+          <label
+            >Your Review
+            <textarea
+              id="review"
+              name="review"
+              required
+              placeholder="Share a few words about your experience…"
+            ></textarea>
+          </label>
+
+          <h2>Quick Human Check</h2>
+          <div class="verify">
+            <span id="challenge">What is 3 + 4?</span>
+            <input
+              type="number"
+              id="answer"
+              placeholder="Your answer"
+              required
+            />
+            <button type="button" class="btn" id="verifyBtn">Verify</button>
+          </div>
+          <div class="status" id="verifyStatus"></div>
+
+          <button class="btn" id="submitBtn" type="submit" disabled>
+            Submit Review
+          </button>
+        </form>
+      </section>
+
+      <!-- Reviews List -->
+      <section class="card">
+        <h1>Recent Reviews</h1>
+        <div id="reviews" class="list" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <div>
+          <h2 style="margin: 0 0 6px">Contact Us</h2>
+          <a href="tel:+255688139544">📞 +255 688 139 544</a>
+          <a href="https://wa.me/255688139544">💬 WhatsApp</a>
+          <a href="mailto:mouddezanzibartourssafaristours@gmail.com"
+            >📧 mouddezanzibartourssafaristours@gmail.com</a
+          >
+          <a href="https://www.tiktok.com/@moudzanzibar?_t=ZM-8ysF89GkvE0&_r=1"
+            >🎵 TikTok</a
+          >
+        </div>
+        <div>
+          <h2 style="margin: 0 0 6px">Quick Links</h2>
+          <a href="index.html">Home</a>
+          <a href="tours.html">Tours</a>
+          <a href="whyus.html">Why Us</a>
+          <a href="booking.html">Booking</a>
+          <a href="reviews.html">Reviews</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Firebase SDK -->
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+      import {
+        getFirestore,
+        collection,
+        addDoc,
+        serverTimestamp,
+        query,
+        orderBy,
+        onSnapshot,
+      } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+
+      
+      const firebaseConfig = {
+        apiKey: "AIzaSyArxs7SCg14N6MSG79k4YgXok6udnD-Gns",
+        authDomain: "moud-tour-review.firebaseapp.com",
+        projectId: "moud-tour-review",
+        storageBucket: "moud-tour-review.firebasestorage.app",
+        messagingSenderId: "131802015967",
+        appId: "1:131802015967:web:c355b47a51ff8a08c6216a",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+      const reviewsCol = collection(db, "reviews");
+
+      // ----- UI Helpers -----
+      const el = (id) => document.getElementById(id);
+      const fullName = el("fullName");
+      const email = el("email");
+      const gender = el("gender");
+      const rating = el("rating");
+      const review = el("review");
+      const starsWrap = el("stars");
+      const submitBtn = el("submitBtn");
+      const verifyBtn = el("verifyBtn");
+      const verifyStatus = el("verifyStatus");
+      const challenge = el("challenge");
+      const answer = el("answer");
+      const reviewsList = el("reviews");
+
+      // ----- Star Rating -----
+      function renderStars(value) {
+        [...starsWrap.querySelectorAll(".star")].forEach((st) => {
+          st.classList.toggle("inactive", parseInt(st.dataset.v) > value);
+        });
+      }
+      starsWrap.addEventListener("click", (e) => {
+        const v = parseInt(e.target?.dataset?.v || "0");
+        if (!v) return;
+        rating.value = String(v);
+        renderStars(v);
+      });
+      renderStars(0);
+
+      // ----- Simple Human Verification (Math) with Lockout -----
+      const COOLDOWN_MIN = 10; // lock for 10 minutes after 3 fails
+      const MAX_ATTEMPTS = 3;
+      const ATTEMPTS_KEY = "mt_captcha_attempts";
+      const COOLDOWN_KEY = "mt_captcha_cooldown_until";
+      const VERIFIED_KEY = "mt_captcha_verified"; // session-only pass
+
+      function now() {
+        return Date.now();
+      }
+      function getAttempts() {
+        return parseInt(localStorage.getItem(ATTEMPTS_KEY) || "0");
+      }
+      function setAttempts(n) {
+        localStorage.setItem(ATTEMPTS_KEY, String(n));
+      }
+      function getCooldown() {
+        return parseInt(localStorage.getItem(COOLDOWN_KEY) || "0");
+      }
+      function setCooldownUntil(ts) {
+        localStorage.setItem(COOLDOWN_KEY, String(ts));
+      }
+      function clearCooldown() {
+        localStorage.removeItem(COOLDOWN_KEY);
+      }
+      function setVerified(v) {
+        sessionStorage.setItem(VERIFIED_KEY, v ? "1" : "0");
+      }
+      function isVerified() {
+        return sessionStorage.getItem(VERIFIED_KEY) === "1";
+      }
+
+      let a = 0,
+        b = 0;
+      function newChallenge() {
+        a = Math.floor(3 + Math.random() * 7); // 3..9
+        b = Math.floor(2 + Math.random() * 8); // 2..9
+        challenge.textContent = `What is ${a} + ${b}?`;
+        answer.value = "";
+      }
+
+      function checkCooldownState() {
+        const until = getCooldown();
+        if (until && now() < until) {
+          const minsLeft = Math.ceil((until - now()) / 60000);
+          verifyStatus.textContent = `Verification locked. Try again in ~${minsLeft} min.`;
+          verifyStatus.className = "status err";
+          verifyBtn.disabled = true;
+          submitBtn.disabled = true;
+          return true;
+        }
+        if (until && now() >= until) {
+          // cooldown expired
+          clearCooldown();
+          setAttempts(0);
+        }
+        verifyBtn.disabled = false;
+        return false;
+      }
+
+      function enableSubmitIfVerified() {
+        submitBtn.disabled = !isVerified();
+      }
+
+      verifyBtn.addEventListener("click", () => {
+        if (checkCooldownState()) return;
+
+        const attempts = getAttempts();
+        const correct = parseInt(answer.value, 10) === a + b;
+        if (correct) {
+          setVerified(true);
+          verifyStatus.textContent =
+            "Verified. You can submit your review now.";
+          verifyStatus.className = "status ok";
+          enableSubmitIfVerified();
+        } else {
+          const next = attempts + 1;
+          setAttempts(next);
+          setVerified(false);
+          enableSubmitIfVerified();
+          if (next >= MAX_ATTEMPTS) {
+            const until = now() + COOLDOWN_MIN * 60 * 1000;
+            setCooldownUntil(until);
+            verifyStatus.textContent = `Too many tries. Locked for ${COOLDOWN_MIN} minutes.`;
+            verifyStatus.className = "status err";
+            verifyBtn.disabled = true;
+          } else {
+            verifyStatus.textContent = `Incorrect answer. Attempts left: ${
+              MAX_ATTEMPTS - next
+            }`;
+            verifyStatus.className = "status err";
+            newChallenge();
+          }
+        }
+      });
+
+      newChallenge();
+      checkCooldownState();
+      enableSubmitIfVerified();
+
+      // ----- Submit Review -----
+      function sanitize(str) {
+        return String(str).trim();
+      }
+      function genderEmoji(g) {
+        if (g === "male") return "👨";
+        if (g === "female") return "👩";
+        return "🧑";
+      }
+      function starsText(n) {
+        const v = Math.max(1, Math.min(5, parseInt(n || "0", 10)));
+        return "★".repeat(v) + "☆".repeat(5 - v);
+      }
+
+      document
+        .getElementById("reviewForm")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+          if (!isVerified()) {
+            verifyStatus.textContent = "Please complete verification first.";
+            verifyStatus.className = "status err";
+            return;
+          }
+
+          const data = {
+            fullName: sanitize(fullName.value),
+            email: sanitize(email.value),
+            gender: sanitize(gender.value),
+            rating: parseInt(rating.value, 10),
+            review: sanitize(review.value),
+            createdAt: serverTimestamp(),
+          };
+
+          // Basic validation
+          if (
+            !data.fullName ||
+            !data.email ||
+            !data.gender ||
+            !data.review ||
+            !data.rating
+          ) {
+            alert("Please fill in all fields and select a rating.");
+            return;
+          }
+          if (data.rating < 1 || data.rating > 5) {
+            alert("Please choose a rating from 1 to 5.");
+            return;
+          }
+
+          submitBtn.disabled = true;
+          submitBtn.textContent = "Submitting…";
+          try {
+            await addDoc(reviewsCol, data);
+            alert("Thanks for your review!");
+            e.target.reset();
+            rating.value = "0";
+            renderStars(0);
+            // keep verified for this session
+          } catch (err) {
+            console.error(err);
+            alert("Could not submit. Please try again.");
+          } finally {
+            submitBtn.disabled = !isVerified();
+            submitBtn.textContent = "Submit Review";
+          }
+        });
+
+      // ----- Live Reviews Feed -----
+      const q = query(reviewsCol, orderBy("createdAt", "desc"));
+      onSnapshot(q, (snap) => {
+        reviewsList.innerHTML = "";
+        if (snap.empty) {
+          reviewsList.innerHTML = `<div class="muted">No reviews yet. Be the first to share your experience!</div>`;
+          return;
+        }
+        snap.forEach((doc) => {
+          const d = doc.data();
+          const emoji = genderEmoji(d.gender);
+          const item = document.createElement("div");
+          item.className = "item";
+          const safeName = d.fullName || "Guest";
+          const safeReview = d.review || "";
+          const ratingStr = starsText(d.rating);
+
+          item.innerHTML = `
+          <div class="item-top">
+            <div class="item-emoji">${emoji}</div>
+            <div>${safeName}</div>
+          </div>
+          <div class="item-review"></div>
+          <div class="item-rating">Rating: ${ratingStr}</div>
+        `;
+          item.querySelector(".item-review").textContent = safeReview; // prevent HTML injection
+          reviewsList.appendChild(item);
+        });
+      });
+    </script>
+
+    </body>
+</html>
