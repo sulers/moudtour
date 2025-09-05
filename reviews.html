@@ -15,6 +15,7 @@
         --muted: #6b7280;
         --danger: #c62828;
         --ok: #1b5e20;
+        --transition: all 0.3s ease;
       }
       * {
         box-sizing: border-box;
@@ -25,6 +26,7 @@
           sans-serif;
         background: var(--bg);
         color: var(--text);
+        line-height: 1.6;
       }
       header {
         position: sticky;
@@ -32,6 +34,7 @@
         z-index: 50;
         background: var(--brand);
         color: #fff;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
       }
       nav {
         max-width: 1100px;
@@ -46,6 +49,10 @@
         text-decoration: none;
         margin: 0 10px;
         font-weight: 600;
+        transition: var(--transition);
+      }
+      nav a:hover {
+        opacity: 0.9;
       }
       .brand {
         display: flex;
@@ -79,7 +86,11 @@
         background: var(--card);
         border-radius: 14px;
         box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
-        padding: 20px;
+        padding: 24px;
+        transition: var(--transition);
+      }
+      .card:hover {
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.09);
       }
       h1 {
         margin: 0 0 8px;
@@ -109,6 +120,14 @@
         margin-top: 6px;
         font: inherit;
         background: #fff;
+        transition: var(--transition);
+      }
+      input:focus,
+      select:focus,
+      textarea:focus {
+        outline: none;
+        border-color: var(--brand);
+        box-shadow: 0 0 0 3px rgba(14, 95, 104, 0.1);
       }
       textarea {
         min-height: 120px;
@@ -123,9 +142,14 @@
         font-size: 22px;
         cursor: pointer;
         user-select: none;
+        transition: var(--transition);
+        color: #ddd;
       }
-      .star.inactive {
-        opacity: 0.35;
+      .star.active {
+        color: var(--accent);
+      }
+      .star:hover {
+        transform: scale(1.2);
       }
       .row {
         display: flex;
@@ -134,25 +158,39 @@
       .row > div {
         flex: 1;
       }
+      @media (max-width: 600px) {
+        .row {
+          flex-direction: column;
+          gap: 0;
+        }
+      }
       .btn {
         margin-top: 18px;
         display: inline-block;
         padding: 12px 18px;
         background: var(--accent);
+        color: #000;
         border: none;
         border-radius: 10px;
         font-weight: 800;
         cursor: pointer;
+        transition: var(--transition);
+      }
+      .btn:hover:not([disabled]) {
+        background: #ffa000;
+        transform: translateY(-2px);
       }
       .btn[disabled] {
         opacity: 0.5;
         cursor: not-allowed;
+        transform: none;
       }
       .verify {
         display: flex;
         gap: 10px;
         align-items: center;
         margin-top: 10px;
+        flex-wrap: wrap;
       }
       .verify input {
         max-width: 160px;
@@ -160,12 +198,20 @@
       .status {
         margin-top: 8px;
         font-size: 0.9rem;
+        padding: 8px 12px;
+        border-radius: 6px;
       }
       .status.ok {
+        background-color: rgba(27, 94, 32, 0.1);
         color: var(--ok);
       }
       .status.err {
+        background-color: rgba(198, 40, 40, 0.1);
         color: var(--danger);
+      }
+      .status.info {
+        background-color: rgba(14, 95, 104, 0.1);
+        color: var(--brand);
       }
       .list {
         display: flex;
@@ -176,7 +222,12 @@
         background: #fff;
         border: 1px solid #eef2f7;
         border-radius: 12px;
-        padding: 14px 16px;
+        padding: 16px;
+        transition: var(--transition);
+      }
+      .item:hover {
+        border-color: var(--accent);
+        transform: translateY(-2px);
       }
       .item-top {
         display: flex;
@@ -190,10 +241,47 @@
       .item-review {
         margin: 8px 0 10px;
         white-space: pre-wrap;
+        line-height: 1.5;
       }
       .item-rating {
         font-size: 0.95rem;
         color: #444;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .item-date {
+        font-size: 0.8rem;
+        color: var(--muted);
+        margin-top: 5px;
+      }
+      .loading {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border: 3px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        border-top-color: #fff;
+        animation: spin 1s ease-in-out infinite;
+      }
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+      .form-message {
+        padding: 12px;
+        border-radius: 8px;
+        margin-top: 16px;
+        display: none;
+      }
+      .form-success {
+        background: rgba(27, 94, 32, 0.1);
+        color: var(--ok);
+        display: block;
+      }
+      .form-error {
+        background: rgba(198, 40, 40, 0.1);
+        color: var(--danger);
+        display: block;
       }
       footer {
         background: #0e1a22;
@@ -213,6 +301,10 @@
         text-decoration: none;
         display: block;
         margin: 6px 0;
+        transition: var(--transition);
+      }
+      .footer-inner a:hover {
+        color: #fff;
       }
     </style>
   </head>
@@ -305,9 +397,11 @@
               id="review"
               name="review"
               required
+              maxlength="500"
               placeholder="Share a few words about your experience…"
             ></textarea>
           </label>
+          <div class="muted" id="charCount">0/500 characters</div>
 
           <h2>Quick Human Check</h2>
           <div class="verify">
@@ -321,6 +415,8 @@
             <button type="button" class="btn" id="verifyBtn">Verify</button>
           </div>
           <div class="status" id="verifyStatus"></div>
+
+          <div class="form-message" id="formMessage"></div>
 
           <button class="btn" id="submitBtn" type="submit" disabled>
             Submit Review
@@ -361,6 +457,7 @@
 
     <!-- Firebase SDK -->
     <script type="module">
+      // Import Firebase functions
       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
       import {
         getFirestore,
@@ -370,9 +467,10 @@
         query,
         orderBy,
         onSnapshot,
+        limit,
       } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 
-      
+      // Firebase configuration
       const firebaseConfig = {
         apiKey: "AIzaSyArxs7SCg14N6MSG79k4YgXok6udnD-Gns",
         authDomain: "moud-tour-review.firebaseapp.com",
@@ -382,6 +480,7 @@
         appId: "1:131802015967:web:c355b47a51ff8a08c6216a",
       };
 
+      // Initialize Firebase
       const app = initializeApp(firebaseConfig);
       const db = getFirestore(app);
       const reviewsCol = collection(db, "reviews");
@@ -393,6 +492,7 @@
       const gender = el("gender");
       const rating = el("rating");
       const review = el("review");
+      const charCount = el("charCount");
       const starsWrap = el("stars");
       const submitBtn = el("submitBtn");
       const verifyBtn = el("verifyBtn");
@@ -400,19 +500,48 @@
       const challenge = el("challenge");
       const answer = el("answer");
       const reviewsList = el("reviews");
+      const formMessage = el("formMessage");
+
+      // ----- Character Count for Review Textarea -----
+      review.addEventListener("input", () => {
+        const count = review.value.length;
+        charCount.textContent = `${count}/500 characters`;
+        if (count > 450) {
+          charCount.style.color = "var(--danger)";
+        } else if (count > 400) {
+          charCount.style.color = "var(--accent)";
+        } else {
+          charCount.style.color = "var(--muted)";
+        }
+      });
 
       // ----- Star Rating -----
       function renderStars(value) {
         [...starsWrap.querySelectorAll(".star")].forEach((st) => {
-          st.classList.toggle("inactive", parseInt(st.dataset.v) > value);
+          const starValue = parseInt(st.dataset.v);
+          st.classList.toggle("active", starValue <= value);
+          st.classList.toggle("inactive", starValue > value);
         });
       }
+      
       starsWrap.addEventListener("click", (e) => {
         const v = parseInt(e.target?.dataset?.v || "0");
         if (!v) return;
         rating.value = String(v);
         renderStars(v);
       });
+      
+      starsWrap.addEventListener("mouseover", (e) => {
+        const v = parseInt(e.target?.dataset?.v || "0");
+        if (!v) return;
+        renderStars(v);
+      });
+      
+      starsWrap.addEventListener("mouseout", () => {
+        const currentValue = parseInt(rating.value);
+        renderStars(currentValue);
+      });
+      
       renderStars(0);
 
       // ----- Simple Human Verification (Math) with Lockout -----
@@ -517,16 +646,32 @@
 
       // ----- Submit Review -----
       function sanitize(str) {
-        return String(str).trim();
+        return String(str).trim().substring(0, 500);
       }
+      
       function genderEmoji(g) {
         if (g === "male") return "👨";
         if (g === "female") return "👩";
         return "🧑";
       }
+      
       function starsText(n) {
         const v = Math.max(1, Math.min(5, parseInt(n || "0", 10)));
         return "★".repeat(v) + "☆".repeat(5 - v);
+      }
+      
+      function formatDate(timestamp) {
+        if (!timestamp) return "";
+        try {
+          const date = timestamp.toDate();
+          return date.toLocaleDateString('en-US', { 
+            year: 'numeric', 
+            month: 'short', 
+            day: 'numeric' 
+          });
+        } catch (e) {
+          return "";
+        }
       }
 
       document
@@ -556,26 +701,37 @@
             !data.review ||
             !data.rating
           ) {
-            alert("Please fill in all fields and select a rating.");
+            formMessage.textContent = "Please fill in all fields and select a rating.";
+            formMessage.className = "form-error";
             return;
           }
           if (data.rating < 1 || data.rating > 5) {
-            alert("Please choose a rating from 1 to 5.");
+            formMessage.textContent = "Please choose a rating from 1 to 5.";
+            formMessage.className = "form-error";
             return;
           }
 
           submitBtn.disabled = true;
-          submitBtn.textContent = "Submitting…";
+          submitBtn.innerHTML = '<span class="loading"></span> Submitting...';
+          
           try {
             await addDoc(reviewsCol, data);
-            alert("Thanks for your review!");
+            formMessage.textContent = "Thanks for your review!";
+            formMessage.className = "form-success";
             e.target.reset();
             rating.value = "0";
             renderStars(0);
-            // keep verified for this session
+            charCount.textContent = "0/500 characters";
+            charCount.style.color = "var(--muted)";
+            
+            // Clear success message after 3 seconds
+            setTimeout(() => {
+              formMessage.style.display = "none";
+            }, 3000);
           } catch (err) {
-            console.error(err);
-            alert("Could not submit. Please try again.");
+            console.error("Submission error:", err);
+            formMessage.textContent = "Could not submit. Please check your connection and try again.";
+            formMessage.className = "form-error";
           } finally {
             submitBtn.disabled = !isVerified();
             submitBtn.textContent = "Submit Review";
@@ -583,35 +739,45 @@
         });
 
       // ----- Live Reviews Feed -----
-      const q = query(reviewsCol, orderBy("createdAt", "desc"));
-      onSnapshot(q, (snap) => {
-        reviewsList.innerHTML = "";
-        if (snap.empty) {
-          reviewsList.innerHTML = `<div class="muted">No reviews yet. Be the first to share your experience!</div>`;
-          return;
+      const q = query(reviewsCol, orderBy("createdAt", "desc"), limit(20));
+      onSnapshot(q, 
+        (snap) => {
+          reviewsList.innerHTML = "";
+          if (snap.empty) {
+            reviewsList.innerHTML = `<div class="muted">No reviews yet. Be the first to share your experience!</div>`;
+            return;
+          }
+          snap.forEach((doc) => {
+            const d = doc.data();
+            const emoji = genderEmoji(d.gender);
+            const item = document.createElement("div");
+            item.className = "item";
+            const safeName = d.fullName || "Guest";
+            const safeReview = d.review || "";
+            const ratingStr = starsText(d.rating);
+            const dateStr = formatDate(d.createdAt);
+
+            item.innerHTML = `
+            <div class="item-top">
+              <div class="item-emoji">${emoji}</div>
+              <div>${safeName}</div>
+            </div>
+            <div class="item-review">${safeReview}</div>
+            <div class="item-rating">${ratingStr}</div>
+            ${dateStr ? `<div class="item-date">${dateStr}</div>` : ''}
+          `;
+            reviewsList.appendChild(item);
+          });
+        },
+        (error) => {
+          console.error("Firestore error:", error);
+          reviewsList.innerHTML = `
+            <div class="status err">
+              Unable to load reviews. Please check your internet connection.
+            </div>
+          `;
         }
-        snap.forEach((doc) => {
-          const d = doc.data();
-          const emoji = genderEmoji(d.gender);
-          const item = document.createElement("div");
-          item.className = "item";
-          const safeName = d.fullName || "Guest";
-          const safeReview = d.review || "";
-          const ratingStr = starsText(d.rating);
-
-          item.innerHTML = `
-          <div class="item-top">
-            <div class="item-emoji">${emoji}</div>
-            <div>${safeName}</div>
-          </div>
-          <div class="item-review"></div>
-          <div class="item-rating">Rating: ${ratingStr}</div>
-        `;
-          item.querySelector(".item-review").textContent = safeReview; // prevent HTML injection
-          reviewsList.appendChild(item);
-        });
-      });
+      );
     </script>
-
-    </body>
+  </body>
 </html>
