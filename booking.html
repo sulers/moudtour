@@ -38,43 +38,29 @@
         color: #333;
       }
 
-      /*nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 15px 20px;
-        max-width: 1200px;
-        margin: auto;
-      }
-      nav a {
-        color: #fff;
-        text-decoration: none;
-        margin: 0 10px;
-        font-weight: 500;
-      }
-      nav .brand {
-        font-weight: 700;
-        font-size: 1.2em;
-      }*/
       main {
         max-width: 700px;
         margin: auto;
         padding: 40px 20px;
       }
+
       h1 {
         color: #0e5f68;
       }
+
       form {
         background: #fff;
         padding: 20px;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       }
+
       label {
         display: block;
         margin-top: 15px;
         font-weight: 600;
       }
+
       input,
       textarea {
         width: 100%;
@@ -83,24 +69,39 @@
         border: 1px solid #ccc;
         border-radius: 6px;
       }
-      button {
+
+      .actions {
         margin-top: 20px;
-        padding: 12px 20px;
-        background: #ffb703;
-        border: none;
+        display: grid;
+        gap: 10px;
+      }
+
+      .btn {
+        display: block;
+        padding: 14px;
         border-radius: 6px;
+        text-align: center;
         font-weight: bold;
-        cursor: pointer;
+        text-decoration: none;
+        color: white;
       }
-      button:hover {
-        background: #e6a500;
+
+      .whatsapp { background: #25D366; }
+      .sms { background: #3b82f6; }
+      .email { background: #ffb703; }
+      .call { background: #10b981; }
+
+      .btn:hover {
+        opacity: 0.9;
       }
+
       footer {
         background: #0e1a22;
         color: #c9d6df;
         padding: 40px 20px;
         margin-top: 40px;
       }
+
       .footer-content {
         max-width: 1200px;
         margin: auto;
@@ -108,20 +109,14 @@
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 20px;
       }
-      .footer-content h4 {
-        margin-bottom: 10px;
-      }
+
       .footer-content a {
         color: #c9d6df;
         text-decoration: none;
-        display: block;
-        margin-bottom: 6px;
-      }
-      .footer-content a:hover {
-        text-decoration: underline;
       }
     </style>
   </head>
+
   <body>
     <header class="header" id="top">
       <div class="container">
@@ -148,50 +143,40 @@
         </div>
       </div>
     </header>
+
     <main>
       <h1>Book Your Zanzibar Adventure</h1>
       <p>
-        Please fill out the form below to request your booking. Our team will
-        get back to you shortly.
+        Fill the details below and contact us instantly via your preferred method.
       </p>
 
-      <!-- Formspree form -->
-      <form action="https://formspree.io/f/mblkbndv" method="POST">
-        <label for="name">Full Name</label>
-        <input type="text" id="name" name="name" required />
+      <!-- SAME FORM UI (but no action now) -->
+      <form onsubmit="return false;">
+        <label>Full Name</label>
+        <input type="text" id="username" />
 
-        <label for="email">Email Address</label>
-        <input type="email" id="email" name="email" required />
+        <label>Email Address</label>
+        <input type="email" id="email" />
 
-        <label for="phone">Phone / WhatsApp</label>
-        <input type="text" id="phone" name="phone" required />
+        <label>Phone / WhatsApp</label>
+        <input type="text" id="phone" />
 
-        <label for="dates">Travel Dates</label>
-        <input
-          type="text"
-          id="dates"
-          name="dates"
-          placeholder="e.g. 10–15 December"
-        />
+        <label>Travel Dates</label>
+        <input type="text" id="dates" placeholder="e.g. 10–15 December" />
 
-        <label for="group">Group Size</label>
-        <input
-          type="number"
-          id="group"
-          name="group"
-          min="1"
-          placeholder="e.g. 4"
-        />
+        <label>Group Size</label>
+        <input type="number" id="group" min="1" />
 
-        <label for="message">Message / Services Interested In</label>
-        <textarea
-          id="message"
-          name="message"
-          rows="5"
-          placeholder="Tell us what tours or services you’re looking for"
-        ></textarea>
+        <label>Message / Services Interested In</label>
+        <textarea id="message" rows="5"></textarea>
 
-        <button type="submit">Send Booking Request</button>
+        <!-- NEW BUTTONS -->
+        <div class="actions">
+          <a id="whatsappBtn" class="btn whatsapp">💬 Send via WhatsApp</a>
+          <a id="smsBtn" class="btn sms">📩 Send via SMS</a>
+          <a id="emailBtn" class="btn email">📧 Send via Email</a>
+          <a href="tel:+255688139544" class="btn call">📞 Call Now</a>
+        </div>
       </form>
     </main>
 
@@ -201,8 +186,8 @@
           <h4>Contact Us</h4>
           <a href="tel:+255688139544">📞 +255 688 139 544</a>
           <a href="https://wa.me/255688139544">💬 WhatsApp</a>
-          <a href="mailto:mouddezanzibartourssafaristours@gmail.com"
-            >📧 mouddezanzibartourssafaristours@gmail.com</a
+          <a href="mailto:moudtours@gmail.com"
+            >📧 moudtours@gmail.com</a
           >
           <a href="https://www.tiktok.com/@moudzanzibar?_t=ZM-8ysF89GkvE0&_r=1"
             >🎵 TikTok</a
@@ -230,8 +215,43 @@
     </footer>
 
     <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
+      document.getElementById("year").textContent =
+        new Date().getFullYear();
+
+      function buildMessage() {
+        return `Hello, I would like to book a tour.
+
+Name: ${username.value}
+Email: ${email.value}
+Phone: ${phone.value}
+Dates: ${dates.value}
+Group Size: ${group.value}
+
+Details:
+${message.value}`;
+      }
+
+      function updateLinks() {
+        const msg = encodeURIComponent(buildMessage());
+
+        whatsappBtn.href =
+          `https://wa.me/255688139544?text=${msg}`;
+
+        smsBtn.href =
+          `sms:+255688139544?body=${msg}`;
+
+        emailBtn.href =
+          `mailto:moudtours@gmail.com?subject=Tour Booking&body=${msg}`;
+      }
+
+      document
+        .querySelectorAll("input, textarea")
+        .forEach(el => el.addEventListener("input", updateLinks));
+
+      updateLinks();
     </script>
+
     <script src="scripts/nav.js"></script>
   </body>
 </html>
+```
