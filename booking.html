@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -17,10 +17,7 @@
       property="og:description"
       content="Explore Zanzibar with Moud Tour — Beaches, Stone Town, Spice Farms, Dolphin Tours & more."
     />
-    <meta
-      property="og:image"
-      content="https://moudtours.com/images/moud.jpg"
-    />
+    <meta property="og:image" content="https://moudtours.com/images/moud.jpg" />
     <meta property="og:type" content="website" />
 
     <link rel="icon" type="image/jpg" sizes="32x32" href="images/fav.jpg" />
@@ -86,10 +83,18 @@
         color: white;
       }
 
-      .whatsapp { background: #25D366; }
-      .sms { background: #3b82f6; }
-      .email { background: #ffb703; }
-      .call { background: #10b981; }
+      .whatsapp {
+        background: #25d366;
+      }
+      .sms {
+        background: #3b82f6;
+      }
+      .email {
+        background: #ffb703;
+      }
+      .call {
+        background: #10b981;
+      }
 
       .btn:hover {
         opacity: 0.9;
@@ -122,7 +127,9 @@
       <div class="container">
         <nav class="nav" aria-label="Main navigation">
           <a href="index.html" class="brand">
-            <div class="brand-logo">M</div>
+            <div class="brand-logo">
+              <img src="images/fav.jpg" alt="Moud Tours & Safaris Logo" />
+            </div>
             <div class="brand-name">Moud Tours & Safaris</div>
           </a>
           <button class="burger" aria-label="Open menu" id="burger">☰</button>
@@ -147,7 +154,8 @@
     <main>
       <h1>Book Your Zanzibar Adventure</h1>
       <p>
-        Fill the details below and contact us instantly via your preferred method.
+        Fill the details below and contact us instantly via your preferred
+        method.
       </p>
 
       <!-- SAME FORM UI (but no action now) -->
@@ -186,9 +194,7 @@
           <h4>Contact Us</h4>
           <a href="tel:+255688139544">📞 +255 688 139 544</a>
           <a href="https://wa.me/255688139544">💬 WhatsApp</a>
-          <a href="mailto:moudtours@gmail.com"
-            >📧 moudtours@gmail.com</a
-          >
+          <a href="mailto:moudtours@gmail.com">📧 moudtours@gmail.com</a>
           <a href="https://www.tiktok.com/@moudzanzibar?_t=ZM-8ysF89GkvE0&_r=1"
             >🎵 TikTok</a
           >
@@ -215,8 +221,7 @@
     </footer>
 
     <script>
-      document.getElementById("year").textContent =
-        new Date().getFullYear();
+      document.getElementById("year").textContent = new Date().getFullYear();
 
       function buildMessage() {
         return `Hello, I would like to book a tour.
@@ -234,19 +239,16 @@ ${message.value}`;
       function updateLinks() {
         const msg = encodeURIComponent(buildMessage());
 
-        whatsappBtn.href =
-          `https://wa.me/255688139544?text=${msg}`;
+        whatsappBtn.href = `https://wa.me/255688139544?text=${msg}`;
 
-        smsBtn.href =
-          `sms:+255688139544?body=${msg}`;
+        smsBtn.href = `sms:+255688139544?body=${msg}`;
 
-        emailBtn.href =
-          `mailto:moudtours@gmail.com?subject=Tour Booking&body=${msg}`;
+        emailBtn.href = `mailto:moudtours@gmail.com?subject=Tour Booking&body=${msg}`;
       }
 
       document
         .querySelectorAll("input, textarea")
-        .forEach(el => el.addEventListener("input", updateLinks));
+        .forEach((el) => el.addEventListener("input", updateLinks));
 
       updateLinks();
     </script>
