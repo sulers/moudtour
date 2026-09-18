@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -22,7 +22,12 @@
       }
       body {
         margin: 0;
-        font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial,
+        font-family:
+          system-ui,
+          -apple-system,
+          Segoe UI,
+          Roboto,
+          Arial,
           sans-serif;
         background: var(--bg);
         color: var(--text);
@@ -265,7 +270,9 @@
         animation: spin 1s ease-in-out infinite;
       }
       @keyframes spin {
-        to { transform: rotate(360deg); }
+        to {
+          transform: rotate(360deg);
+        }
       }
       .form-message {
         padding: 12px;
@@ -437,9 +444,7 @@
           <h2 style="margin: 0 0 6px">Contact Us</h2>
           <a href="tel:+255688139544">📞 +255 688 139 544</a>
           <a href="https://wa.me/255688139544">💬 WhatsApp</a>
-          <a href="mailto:mouddezanzibartourssafaristours@gmail.com"
-            >📧 mouddezanzibartourssafaristours@gmail.com</a
-          >
+          <a href="mailto:moudtours@gmail.com">📧 moudtours@gmail.com</a>
           <a href="https://www.tiktok.com/@moudzanzibar?_t=ZM-8ysF89GkvE0&_r=1"
             >🎵 TikTok</a
           >
@@ -523,25 +528,25 @@
           st.classList.toggle("inactive", starValue > value);
         });
       }
-      
+
       starsWrap.addEventListener("click", (e) => {
         const v = parseInt(e.target?.dataset?.v || "0");
         if (!v) return;
         rating.value = String(v);
         renderStars(v);
       });
-      
+
       starsWrap.addEventListener("mouseover", (e) => {
         const v = parseInt(e.target?.dataset?.v || "0");
         if (!v) return;
         renderStars(v);
       });
-      
+
       starsWrap.addEventListener("mouseout", () => {
         const currentValue = parseInt(rating.value);
         renderStars(currentValue);
       });
-      
+
       renderStars(0);
 
       // ----- Simple Human Verification (Math) with Lockout -----
@@ -648,26 +653,26 @@
       function sanitize(str) {
         return String(str).trim().substring(0, 500);
       }
-      
+
       function genderEmoji(g) {
         if (g === "male") return "👨";
         if (g === "female") return "👩";
         return "🧑";
       }
-      
+
       function starsText(n) {
         const v = Math.max(1, Math.min(5, parseInt(n || "0", 10)));
         return "★".repeat(v) + "☆".repeat(5 - v);
       }
-      
+
       function formatDate(timestamp) {
         if (!timestamp) return "";
         try {
           const date = timestamp.toDate();
-          return date.toLocaleDateString('en-US', { 
-            year: 'numeric', 
-            month: 'short', 
-            day: 'numeric' 
+          return date.toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "short",
+            day: "numeric",
           });
         } catch (e) {
           return "";
@@ -701,7 +706,8 @@
             !data.review ||
             !data.rating
           ) {
-            formMessage.textContent = "Please fill in all fields and select a rating.";
+            formMessage.textContent =
+              "Please fill in all fields and select a rating.";
             formMessage.className = "form-error";
             return;
           }
@@ -713,7 +719,7 @@
 
           submitBtn.disabled = true;
           submitBtn.innerHTML = '<span class="loading"></span> Submitting...';
-          
+
           try {
             await addDoc(reviewsCol, data);
             formMessage.textContent = "Thanks for your review!";
@@ -723,14 +729,15 @@
             renderStars(0);
             charCount.textContent = "0/500 characters";
             charCount.style.color = "var(--muted)";
-            
+
             // Clear success message after 3 seconds
             setTimeout(() => {
               formMessage.style.display = "none";
             }, 3000);
           } catch (err) {
             console.error("Submission error:", err);
-            formMessage.textContent = "Could not submit. Please check your connection and try again.";
+            formMessage.textContent =
+              "Could not submit. Please check your connection and try again.";
             formMessage.className = "form-error";
           } finally {
             submitBtn.disabled = !isVerified();
@@ -740,7 +747,8 @@
 
       // ----- Live Reviews Feed -----
       const q = query(reviewsCol, orderBy("createdAt", "desc"), limit(20));
-      onSnapshot(q, 
+      onSnapshot(
+        q,
         (snap) => {
           reviewsList.innerHTML = "";
           if (snap.empty) {
@@ -764,7 +772,7 @@
             </div>
             <div class="item-review">${safeReview}</div>
             <div class="item-rating">${ratingStr}</div>
-            ${dateStr ? `<div class="item-date">${dateStr}</div>` : ''}
+            ${dateStr ? `<div class="item-date">${dateStr}</div>` : ""}
           `;
             reviewsList.appendChild(item);
           });
@@ -776,7 +784,7 @@
               Unable to load reviews. Please check your internet connection.
             </div>
           `;
-        }
+        },
       );
     </script>
   </body>
